@@ -44,6 +44,11 @@ class Hero extends GameObject {
     this.cooldown = 0;
     this.life = 3;
     this.points = 0;
+
+    fire(){
+      gameObjects.push(new Laser(this.x+45,this.y-10));
+    }
+    
   }
 }
 
@@ -107,7 +112,14 @@ class Laser extends GameObject {
   }
 }
 
-fire(){
-  gameObjects.push(new Laser(this.x+45,this.y-10));
-}
-
+window.addEventListener("keyup",(evt)=>{
+  if(evt.key === "ArrowLeft"){
+    hero.x -= 20;
+  }
+  else if(evt.key === "ArrowRight"){
+    hero.x += 20;
+  }
+  else if(evt.keyCode === 32){
+    hero.fire();
+  }
+});
