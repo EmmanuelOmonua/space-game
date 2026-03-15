@@ -25,6 +25,22 @@ window.onload = () => {
   ctx.fillRect(0,0,canvas.width,canvas.height);
 };
 
+function gameLoop(){
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="black";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  drawPoints();
+  drawLife();
+
+  updateGameObjects();
+  drawGameObjects(ctx);
+
+}
+
+setInterval(gameLoop,100);
+
 let heroImg;
 let enemyImg;
 let laserImg;
@@ -179,17 +195,3 @@ function drawGameObjects(ctx){
 function updateGameObjects(){
   gameObjects = gameObjects.filter(obj => !obj.dead);
 }
-
-setInterval(()=>{
-  if(!hero) return;
-
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="black";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  drawPoints();
-  drawLife();
-
-  updateGameObjects();
-  drawGameObjects(ctx);
-},100);
