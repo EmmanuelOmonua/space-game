@@ -45,15 +45,15 @@ class Hero extends GameObject {
     this.life = 3;
     this.points = 0;
 
-    fire(){
+  }
+
+      fire(){
       gameObjects.push(new Laser(this.x+45,this.y-10));
     }
 
-    incrementPoints(){
+  incrementPoints(){
       this.points += 100;
     }
-    
-  }
 }
 
 let hero;
