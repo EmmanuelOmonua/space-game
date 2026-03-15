@@ -56,7 +56,7 @@ function gameLoop(){
 
 }
 
-setInterval(gameLoop,100);
+setInterval(gameLoop,30);
 
 let heroImg;
 let enemyImg;
@@ -122,8 +122,8 @@ function createHero(){
 class Enemy extends GameObject {
   constructor(x,y){
     super(x,y);
-    this.width = 98;
-    this.height = 50;
+    this.width = 80;
+    this.height = 80;
     this.type = "Enemy";
 
     let id = setInterval(()=>{
