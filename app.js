@@ -140,3 +140,11 @@ function drawPoints(){
   ctx.fillStyle = "red";
   ctx.fillText("Points: " + hero.points,10,canvas.height-20);
 }
+
+function drawLife(){
+  const START_POS = canvas.width - 180;
+
+  for(let i=0;i<hero.life;i++){
+    ctx.drawImage(lifeImg,START_POS + 45*(i+1),canvas.height-37);
+  }
+}
