@@ -148,3 +148,15 @@ function drawLife(){
     ctx.drawImage(lifeImg,START_POS + 45*(i+1),canvas.height-37);
   }
 }
+
+setInterval(()=>{
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="black";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  drawPoints();
+  drawLife();
+
+  updateGameObjects();
+  drawGameObjects(ctx);
+},100);
