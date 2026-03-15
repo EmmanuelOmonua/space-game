@@ -55,3 +55,35 @@ function createHero(){
   hero.img = heroImg;
   gameObjects.push(hero);
 }
+
+class Enemy extends GameObject {
+  constructor(x,y){
+    super(x,y);
+    this.width = 98;
+    this.height = 50;
+    this.type = "Enemy";
+
+    let id = setInterval(()=>{
+      if(this.y < canvas.height - this.height){
+        this.y += 5;
+      } else {
+        clearInterval(id);
+      }
+    },300);
+  }
+}
+
+function createEnemies(){
+  const MONSTER_TOTAL = 5;
+  const MONSTER_WIDTH = MONSTER_TOTAL * 98;
+  const START_X = (canvas.width - MONSTER_WIDTH)/2;
+  const STOP_X = START_X + MONSTER_WIDTH;
+
+  for(let x=START_X;x<STOP_X;x+=98){
+    for(let y=0;y<50*5;y+=50){
+      const enemy = new Enemy(x,y);
+      enemy.img = enemyImg;
+      gameObjects.push(enemy);
+    }
+  }
+}
