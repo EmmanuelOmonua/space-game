@@ -15,6 +15,9 @@ laserImg.src = "assets/laser.png";
 lifeImg = new Image();
 lifeImg.src = "assets/life.png";
 
+createEnemies();
+createHero();
+
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
 
