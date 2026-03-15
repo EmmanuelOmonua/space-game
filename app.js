@@ -3,23 +3,23 @@ let ctx;
 
 window.onload = () => {
 
-heroImg = new Image();
-heroImg.src = "assets/player.png";
-
-enemyImg = new Image();
-enemyImg.src = "assets/enemy.png";
-
-laserImg = new Image();
-laserImg.src = "assets/laser.png";
-
-lifeImg = new Image();
-lifeImg.src = "assets/life.png";
-
-createEnemies();
-createHero();
-
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
+
+  heroImg = new Image();
+  heroImg.src = "assets/player.png";
+
+  enemyImg = new Image();
+  enemyImg.src = "assets/enemy.png";
+
+  laserImg = new Image();
+  laserImg.src = "assets/laser.png";
+
+  lifeImg = new Image();
+  lifeImg.src = "assets/life.png";
+
+  createEnemies();
+  createHero();
 
   ctx.fillStyle = "black";
   ctx.fillRect(0,0,canvas.width,canvas.height);
