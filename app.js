@@ -10,10 +10,10 @@ window.onload = () => {
   heroImg.src = "assets/player.png";
 
   enemyImg = new Image();
-  enemyImg.src = "assets/enemy.png";
+  enemyImg.src = "assets/enemyShip.png";
 
   laserImg = new Image();
-  laserImg.src = "assets/laser.png";
+  laserImg.src = "assets/laserRed.png";
 
   lifeImg = new Image();
   lifeImg.src = "assets/life.png";
