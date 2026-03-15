@@ -27,7 +27,24 @@ window.onload = () => {
 
 function gameLoop(){
 
+  if(hero.life <= 0){
+    ctx.font = "50px Arial";
+    ctx.fillStyle = "red";
+    ctx.fillText("GAME OVER", canvas.width/2 - 150, canvas.height/2);
+    return;
+  }
+
+  const enemiesLeft = gameObjects.filter(obj => obj.type === "Enemy");
+
+  if(enemiesLeft.length === 0){
+    ctx.font = "50px Arial";
+    ctx.fillStyle = "green";
+    ctx.fillText("YOU WIN!", canvas.width/2 - 120, canvas.height/2);
+    return;
+  }
+
   ctx.clearRect(0,0,canvas.width,canvas.height);
+
   ctx.fillStyle="black";
   ctx.fillRect(0,0,canvas.width,canvas.height);
 
@@ -193,5 +210,39 @@ function drawGameObjects(ctx){
 }
 
 function updateGameObjects(){
+
+  gameObjects.forEach(obj1 => {
+
+    gameObjects.forEach(obj2 => {
+
+      if(obj1.type === "Laser" && obj2.type === "Enemy"){
+
+        if(intersectRect(obj1.rectFromGameObject(), obj2.rectFromGameObject())){
+
+          obj1.dead = true;
+          obj2.dead = true;
+
+          hero.incrementPoints();
+
+        }
+
+      }
+
+      if(obj1.type === "Enemy" && obj2.type === "Hero"){
+
+        if(intersectRect(obj1.rectFromGameObject(), obj2.rectFromGameObject())){
+
+          obj1.dead = true;
+          hero.life--;
+
+        }
+
+      }
+
+    });
+
+  });
+
   gameObjects = gameObjects.filter(obj => !obj.dead);
+
 }
