@@ -48,6 +48,10 @@ class Hero extends GameObject {
     fire(){
       gameObjects.push(new Laser(this.x+45,this.y-10));
     }
+
+    incrementPoints(){
+      this.points += 100;
+    }
     
   }
 }
@@ -129,4 +133,10 @@ function intersectRect(r1,r2){
            r2.right < r1.left ||
            r2.top > r1.bottom ||
            r2.bottom < r1.top);
+}
+
+function drawPoints(){
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "red";
+  ctx.fillText("Points: " + hero.points,10,canvas.height-20);
 }
